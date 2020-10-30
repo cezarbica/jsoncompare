@@ -17,29 +17,9 @@
     "reinstall": "rm -rf node_modules package-lock.json && rm -rf packages/*/node_modules packages/*/package-lock.json && npm run install-all",
     "lint": "eslint . --ext .js --ignore-pattern '**/node_modules/**' --ignore-pattern '**/public/**'",
     "stylelint": "stylelint frontend/**/*.css",
-    "clean": "rimraf packages/backend/public",
-    "deploy": "pm2 deploy ecosystem.json production --force",
-    "travis-deploy": "if-env TRAVIS_BRANCH=master TRAVIS_PULL_REQUEST=false && npm run release || echo \"Deploy is not run: TRAVIS_BRANCH=$TRAVIS_BRANCH TRAVIS_PULL_REQUEST=$TRAVIS_PULL_REQUEST\"",
-    "release": "ssh-keyscan 192.241.157.86 >> ~/.ssh/known_hosts && npm run deploy"
+    "clean": "rimraf packages/backend/public"
   },
   "browserslist": "> 0.25%",
-  "config": {
-    "validate-commit-msg": {
-      "types": [
-        "feat",
-        "fix",
-        "refactor",
-        "perf",
-        "test",
-        "chore",
-        "revert",
-        "ci"
-      ]
-    },
-    "ghooks": {
-      "commit-msg": "validate-commit-msg"
-    }
-  },
   "release": {
     "publish": []
   },
@@ -74,7 +54,6 @@
     "eslint-plugin-react": "^7.19.0",
     "exports-loader": "^0.7.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "ghooks": "^2.0.4",
     "html-webpack-plugin": "^4.3.0",
     "if-env": "^1.0.4",
     "last-release-git": "0.0.3",
@@ -96,13 +75,12 @@
     "style-loader": "^1.2.1",
     "stylelint": "^13.3.3",
     "stylelint-config-standard": "^20.0.0",
-    "validate-commit-msg": "^2.14.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0"
   },
   "peerDependencies": {
-    "pm2": "^4"
+    "pm2": "^4.5.0"
   }
 }
