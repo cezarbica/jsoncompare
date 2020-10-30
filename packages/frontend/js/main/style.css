@@ -45,7 +45,7 @@
 
 .saveButton {
     margin-left: 10px;
-
+    visibility: hidden;
     &::before {
         content: attr(data-save-text);
     }

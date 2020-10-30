@@ -175,48 +175,48 @@ export default class Main extends Seemple {
     }
 
     async save() {
-        const body = this.toJSONString();
-        let foundId;
+        // const body = this.toJSONString();
+        // let foundId;
 
-        this.loading = true;
+        // this.loading = true;
 
-        for (const [memoId, memoBody] of Object.entries(this.memo)) {
-            if (memoBody === body) {
-                foundId = memoId;
-            }
-        }
+        // for (const [memoId, memoBody] of Object.entries(this.memo)) {
+        //     if (memoBody === body) {
+        //         foundId = memoId;
+        //     }
+        // }
 
-        if (foundId) {
-            this.set('id', foundId, {
-                fromSave: true
-            });
+        // if (foundId) {
+        //     this.set('id', foundId, {
+        //         fromSave: true
+        //     });
 
-            this.saved = true;
-        } else {
-            try {
-                const { error, key } = await (
-                    await fetch('/api/save', {
-                        method: 'post',
-                        body
-                    })
-                ).json();
+        //     this.saved = true;
+        // } else {
+        //     try {
+        //         const { error, key } = await (
+        //             await fetch('/api/save', {
+        //                 method: 'post',
+        //                 body
+        //             })
+        //         ).json();
 
-                if (error) {
-                    this.error(error);
-                } else {
-                    this.set('id', key, {
-                        fromSave: true
-                    });
+        //         if (error) {
+        //             this.error(error);
+        //         } else {
+        //             this.set('id', key, {
+        //                 fromSave: true
+        //             });
 
-                    this.memo[key] = body;
-                    this.saved = true;
-                }
-            } catch (error) {
-                this.error(error);
-            }
-        }
+        //             this.memo[key] = body;
+        //             this.saved = true;
+        //         }
+        //     } catch (error) {
+        //         this.error(error);
+        //     }
+        // }
 
-        this.loading = false;
+        // this.loading = false;
     }
 
     async restore(id) {

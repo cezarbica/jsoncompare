@@ -1,16 +1,16 @@
 const { Router } = require('express');
 const { Validator } = require('jsonschema');
-const AWS = require('aws-sdk');
+// const AWS = require('aws-sdk');
 const md5 = require('md5');
 const request = require('request');
 const { isUri } = require('valid-url');
 const path = require('path');
 const AppState = require('./app-state-schema');
 
-AWS.config.loadFromPath(path.resolve(__dirname, '../../../jsonlint_aws_credentials.json'));
+//AWS.config.loadFromPath(path.resolve(__dirname, '../../../jsonlint_aws_credentials.json'));
 
 const validator = new Validator();
-const s3 = new AWS.S3();
+//const s3 = new AWS.S3();
 const router = new Router();
 
 router.post('/save', ({ jsonBody, rawBody }, res) => {
