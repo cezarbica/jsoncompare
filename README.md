@@ -1,4 +1,26 @@
-# jsoncompare.com [![Build Status](https://travis-ci.org/circlecell/jsoncompare.com.svg?branch=master)](https://travis-ci.org/circlecell/jsoncompare.com)
+# install node packages
+docker-compose run --rm jsoncompare npm run install-all
+
+# build the app
+docker-compose run --rm jsoncompare npm run build
+
+# clean built app
+docker-compose run --rm jsoncompare npm run clean
+
+# start the container, will expose http://localhost:5001/
+docker-compose up -d
+
+# other tasks
+docker-compose run --rm jsoncompare sh
+docker-compose exec jsoncompare sh 
+
+pm2 status
+pm2 kill
+
+# see available npm scripts
+docker-compose exec jsoncompare npm run
+
+
 
 Source code for [jsoncompare.com](jsoncompare.com).
 
@@ -9,22 +31,3 @@ A body should include 3 keys:
 - ``batch`` *string[]* - an array of base64-encoded values for the Batch tab
 - ``diff`` *object* - data forthe  Diff tab with keys "left" (base64-encoded value of the left side editor) and "right" (base64-encoded value of the right side editor).
 
-Response JSON includes ``key`` - a name of newly created file on S3 (MD5 hash of the body) or ``error`` if there is an error.
-
-Example:
-```js
->>>
-{
-	"simple": "eyJhIjogMX0=",
-	"batch": ["eyJiIjogMn0=", "eyJjIjogM30=", "eyJkIjogNH0="],
-	"diff": {
-		"left": "eyJlIjogNX0=",
-		"right": "eyJmIjogNn0="
-	}
-}
-<<<
-{ "key":"aac35abfc8e25a4914cf90da13aa29e9" } 
-```
-
-
-``GET https://jsonlintcom.s3.amazonaws.com/{key}.json`` - gets an application state by given key.
