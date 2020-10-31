@@ -4,7 +4,6 @@ import Content from './components/content';
 import Tab from '../tab';
 import LintEditor from '../../../linteditor';
 
-
 export default class DiffTab extends Tab {
     constructor(...args) {
         super(...args)

@@ -4,7 +4,6 @@ const output = require('./output');
 const plugins = require('./plugins');
 const moduleConf = require('./module');
 
-
 const { NODE_ENV } = process.env;
 const root = path.resolve(__dirname, '..');
 
