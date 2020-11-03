@@ -12,16 +12,5 @@
         "PORT": "5001"
       }
     }
-  ],
-  "deploy" : {
-    "production" : {
-      "user" : "deployer",
-      "host" : "192.241.157.86",
-      "ref"  : "origin/master",
-      "repo" : "git@github.com:circlecell/jsoncompare.com.git",
-      "path" : "/app",
-      "ssh_options": ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
-      "post-deploy" : "npm run ci-all && npm run build && npm run serve-prod"
-    },
-  }
+  ]
 }
