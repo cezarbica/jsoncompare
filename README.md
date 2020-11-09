@@ -10,11 +10,11 @@ docker-compose run --rm jsoncompare npm run install-all
 ## # build the app
 docker-compose run --rm jsoncompare npm run build
 
-## # clean built app
-docker-compose run --rm jsoncompare npm run clean
-
 ## # start the container, will expose http://localhost:5001/
 docker-compose up -d
+
+## # clean built app
+docker-compose run --rm jsoncompare npm run clean
 
 ## # other tasks
 docker-compose run --rm jsoncompare sh
