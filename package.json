@@ -9,7 +9,7 @@
     "start": "npm run serve-prod",
     "serve-prod": "pm2 startOrRestart ecosystem.json --env production --watch",
     "build": "npm run clean; NODE_ENV=production webpack --config ./webpack/webpack.config.js --mode production && npm run pack-it",
-    "pack-it": "tar -czvf artifacts/jsoncompare.tgz public/ -C packages/backend/",
+    "pack-it": "tar -czvf artifacts/jsoncompare.tgz -C packages/backend/ public/",
     "install-all": "npm install && lerna exec --concurrency 1 -- npm install",
     "ci-all": "npm ci && lerna exec --concurrency 1 -- npm ci",
     "reinstall": "rm -rf node_modules package-lock.json && rm -rf packages/*/node_modules packages/*/package-lock.json && npm run install-all",
