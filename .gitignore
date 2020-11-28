@@ -4,3 +4,4 @@ node_modules
 public
 .eslintcache
 .DS_Store
+artifacts
