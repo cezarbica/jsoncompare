@@ -12,7 +12,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: mydock
 
     strategy:
       matrix:
@@ -32,6 +32,6 @@ jobs:
       with:
         name: built site
         path: artifacts/jsoncompare.tgz
-        if-no-files-found: # optional, default is warn
+        if-no-files-found: warn # optional, default is warn
         retention-days: 1 # optional
 
