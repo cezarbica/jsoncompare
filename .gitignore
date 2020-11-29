@@ -4,3 +4,6 @@ node_modules
 public
 .eslintcache
 .DS_Store
+.gitsecret/keys/random_seed
+keys/*
+!*.secret
